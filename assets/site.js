@@ -144,4 +144,17 @@
     el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
+  // Vibirs title: hover cycles moods; the word tints to each mood and the letters ride a wave
+  document.querySelectorAll('.vb').forEach(function (el) {
+    var lb = el.querySelector('.vb-mood'), tick = null, i = 0;
+    var moods = [['Calm', '#7fa8ff'], ['Happy', '#ffd36b'], ['Motivated', '#ff8a5c'], ['Energetic', '#5b82e6'], ['Romantic', '#ff7aa8']];
+    function set() { var m = moods[i++ % moods.length]; lb.textContent = m[0]; el.style.setProperty('--mood', m[1]); }
+    function start() { if (tick) return; i = 0; set(); el.classList.add('hv'); tick = setInterval(set, 1400); }
+    function stop() { clearInterval(tick); tick = null; el.classList.remove('hv'); el.style.removeProperty('--mood'); }
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', start);
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
 })();
