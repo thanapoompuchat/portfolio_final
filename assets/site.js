@@ -52,4 +52,32 @@
     a.addEventListener('focus', run);
     a.addEventListener('click', function () { a.classList.toggle('on'); if (a.classList.contains('on')) run(); else reset(); });
   });
+
+  // CultureAI title: on hover, scramble the name into other languages
+  document.querySelectorAll('.loc').forEach(function (el) {
+    var w = el.querySelector('.loc-w'), tag = el.querySelector('.loc-tag');
+    var list = el.dataset.words.split(';').map(function (x) { return x.split('|'); });
+    var i = 0, loop = null, anim = null;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(n) {
+      var target = list[n][0], f = 0, frames = reduce ? 1 : 9;
+      tag.textContent = list[n][1];
+      w.classList.toggle('rtl', list[n][1] === 'AR');
+      clearInterval(anim);
+      anim = setInterval(function () {
+        f++;
+        if (f >= frames) { w.textContent = target; clearInterval(anim); return; }
+        var keep = Math.floor(target.length * f / frames), out = '';
+        for (var c = 0; c < target.length; c++) {
+          out += c < keep || target[c] === ' ' ? target[c] : target[Math.floor(Math.random() * target.length)];
+        }
+        w.textContent = out;
+      }, 32);
+    }
+    function start() { if (loop) return; i = 0; loop = setInterval(function () { i = (i + 1) % list.length; show(i); }, 900); i = 1; show(1); }
+    function stop() { clearInterval(loop); loop = null; i = 0; show(0); }
+    el.addEventListener('mouseenter', start); el.addEventListener('mouseleave', stop);
+    el.addEventListener('focus', start); el.addEventListener('blur', stop);
+    el.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
 })();

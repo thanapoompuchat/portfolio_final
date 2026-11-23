@@ -282,8 +282,8 @@ a { color: inherit; }
 /* Brands with hover image */
 .brands { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 32px; }
 .brands > .tiny { margin-right: 6px; }
-.brand { position: relative; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--line); border-radius: 99px; cursor: default; transition: background .2s, color .2s, border-color .2s; outline: none; }
-.brand:hover, .brand:focus { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.brands .brand { position: relative; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--line); border-radius: 99px; cursor: default; transition: background .2s, color .2s, border-color .2s; outline: none; }
+.brands .brand:hover, .brands .brand:focus { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
 /* brand hover: frameless screens, no white padding; JS sets --dx to keep it on screen */
 .brand .pop { position: absolute; left: 50%; bottom: calc(100% + 12px); display: flex; align-items: flex-end; gap: 8px; opacity: 0; pointer-events: none; transform: translate(calc(-50% + var(--dx, 0px)), 8px) scale(.96); transform-origin: bottom center; transition: opacity .25s, transform .3s cubic-bezier(.2,.7,.2,1); z-index: 5; }
@@ -297,7 +297,7 @@ a { color: inherit; }
   .brand .pop img:only-child { max-width: calc(100vw - 40px); }
 }.brands { gap: 6px; }
 .brands > .tiny { margin-right: 4px; }
-.brand { padding: 7px 10px; letter-spacing: .04em; }
+.brands .brand { padding: 7px 10px; letter-spacing: .04em; }
 /* row hover preview: composed 16:10 thumbnails */
 .item .pv { width: 340px; object-fit: cover; object-position: center; background: none; border-radius: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.28); transform: translateY(-50%) rotate(-3deg) scale(.9); }
 .item:hover .pv { transform: translateY(-50%) rotate(-1.5deg) scale(1); }
@@ -365,3 +365,10 @@ a { color: inherit; }
 .a-cta { background: #141414; color: #fff; text-align: center; border-radius: 12px; padding: 14px; font-size: 14px; font-weight: 500; }
 .a-hint { right: auto; bottom: auto; left: 50%; top: 50%; transform: translate(-50%, -50%); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 .a-screen { min-height: 0; }
+/* CultureAI title: hover localises the name through other languages */
+.loc { position: relative; display: inline-flex; align-items: flex-start; gap: .18em; cursor: default; outline: none; }
+.loc-w { display: inline-block; white-space: nowrap; transition: color .3s; }
+.loc-tag { font: 600 12px/1 'JetBrains Mono', monospace; letter-spacing: .08em; color: var(--on-accent); background: var(--accent); border-radius: 99px; padding: 6px 9px; margin-top: .35em; opacity: 0; transform: translateY(6px) scale(.8); transition: opacity .25s, transform .35s cubic-bezier(.3,1.6,.5,1); }
+.loc:is(:hover, :focus-visible, .on) .loc-tag { opacity: 1; transform: none; }
+.loc:is(:hover, :focus-visible, .on) .loc-w { color: var(--accent); }
+.loc-w.rtl { direction: rtl; }
