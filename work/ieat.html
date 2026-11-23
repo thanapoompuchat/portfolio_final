@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IEAT Web Portal — Thanapoom Puchat</title>
+  <meta name="description" content="Case study: redesigning the Industrial Estate Authority of Thailand's web portal from an org-chart menu into task-first journeys for six user groups.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body style="--accent:#0b3a75;--accent-ink:#ffffff;--accent-soft:#e3ebf6">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Thanapoom Puchat <span>/ Pleum</span></a>
+    <ul>
+      <li><a class="link" href="../index.html#work">Work</a></li>
+      <li><a class="link" href="../index.html#about">About</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a class="cta" href="mailto:thanapoompuchat@gmail.com">Say hello</a>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="eyebrow">Case study 01 · IEAT Web Portal Revamp</div>
+    <h1>A government portal with 340 links, and the button people needed was hidden in a hexagon.</h1>
+    <p class="lede">The Industrial Estate Authority of Thailand (IEAT, กนอ.) serves investors, factory HR teams, agencies, local communities and its own staff, all through one website and the e-PP permit system behind it. I redesigned how they find their way from the portal to finishing a task.</p>
+    <figure class="cover shot"><div class="frame" style="--ratio:16/9"><img src="../images/ieat/cover.png" alt="IEAT Web Portal: project cover"></div></figure>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <dl class="facts">
+      <div><dt>My role</dt><dd>UX/UI designer: research synthesis, IA, design goals, hi-fi screens</dd></div>
+      <div><dt>Type</dt><dd>Government web portal + e-PP permit system hand-off</dd></div>
+      <div><dt>Timeline</dt><dd>May 2026 – 2027<br>Pre-launch</dd></div>
+      <div><dt>Team</dt><dd>2 product designers, development team, IEAT stakeholders</dd></div>
+      <div><dt>Tools</dt><dd>Figma, FigJam, design tokens, GA4 / Hotjar (measurement plan)</dd></div>
+    </dl>
+
+    <div class="tldr">
+      <div><h4>The problem</h4><p>The menu mirrored IEAT's org chart. Users guessed where their task lived, couldn't find the e-PP login, and dropped off at PDF-only service pages.</p></div>
+      <div><h4>What I did</h4><p>Mapped 6 personas and their journeys, rebuilt the IA around tasks, set measurable design goals, and designed the hub-to-e-PP hand-off and key screens on a shared design system.</p></div>
+      <div><h4>Where it stands</h4><p>Not launched yet. Every goal has a baseline from the heuristic review and a target that will be checked with usability tests and analytics.</p></div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">01</span> Existing system</div>
+      <h2>Before talking to anyone, the site itself told us what was wrong.</h2>
+      <div class="body">
+        <p>A heuristic and technical review of ieat.go.th gave us the baselines we would design against. The problems weren't cosmetic. They were structural.</p>
+      </div>
+      <div class="cards">
+        <div><span class="k">Navigation</span><h4>340+ links, sorted by department</h4><p>Users had to know IEAT's internal structure to find a service.</p></div>
+        <div><span class="k">Discoverability</span><h4>e-PP login hidden in a hexagon icon</h4><p>4–6 clicks and ~45 seconds to find it. Staff bookmarked the direct URL instead.</p></div>
+        <div><span class="k">Content</span><h4>Services published as PDF images</h4><p>No steps, fees or timelines on the page. Search and screen readers couldn't read them.</p></div>
+        <div><span class="k">Technical</span><h4>162 images on one page</h4><p>Headings skipped levels (H5→H2), mobile scrolled sideways at 1698px, and a "Client 01" placeholder was live in production.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">02</span> Users</div>
+      <h2>Six groups use the same website for completely different reasons.</h2>
+      <div class="body"><p>I built personas from IEAT's core services and real user feedback. Every IA decision later in the project points back to one of them.</p></div>
+      <div class="cards">
+        <div><span class="k">P · Highest volume</span><h4>Factory HR officer</h4><p>Files foreign-worker permits weekly and checks status every day.</p><q>Every time I open my computer I go to my e-PP bookmark, because I can't find it from the IEAT site.</q></div>
+        <div><span class="k">P · Monthly</span><h4>Accounting / legal officer</h4><p>Handles tax and import-export privileges, hunting for the exact form name.</p><q>I call IEAT before every form, because I don't know what to type into search.</q></div>
+        <div><span class="k">P · Weekly, TH/EN</span><h4>Agency for foreign investors</h4><p>Runs onboarding for Japanese, Chinese and Korean clients.</p><q>The English site is only half there. I end up translating it myself.</q></div>
+        <div><span class="k">P · First-time</span><h4>SME exploring an estate</h4><p>Researching benefits before committing. Doesn't know the jargon.</p><q>There's so much information and I don't know which part is about me.</q></div>
+        <div><span class="k">P · Occasional</span><h4>Community member</h4><p>Wants environmental data or a way to file a complaint.</p><q>I want to know if the estate near my home really emits smoke, but it's all about investors.</q></div>
+        <div><span class="k">P · Daily</span><h4>IEAT staff</h4><p>Already knows the work and only needs the fastest way in.</p><q>I use e-PP every day but can't find the login button on the website.</q></div>
+      </div>
+      <figure class="shot tall"><div class="frame" style="--ratio:1180/3450"><img src="../images/ieat/persona.png" alt="Persona board: six IEAT user groups" loading="lazy"></div><figcaption>Persona board with goals, pain points, quotes and the IA change each one maps to.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">03</span> Journeys &amp; pain points</div>
+      <h2>Every journey broke at the same seam: the jump from the portal into e-PP.</h2>
+      <div class="body">
+        <p>I mapped as-is and to-be journeys for all six roles. Different people, different goals, but the same pattern: information lived in long PDFs, the path to the transaction was buried, and the hand-off to e-PP happened with no warning, which made people worry their login wasn't secure.</p>
+      </div>
+      <figure class="shot"><div class="frame" style="--ratio:3222/1415"><img src="../images/ieat/journey.png" alt="Journey map as-is to to-be: new investor" loading="lazy"></div><figcaption>As-is → to-be journey for a new investor. The emotional low point is the unexplained redirect to e-PP.</figcaption></figure>
+      <div class="split">
+        <div class="body">
+          <h3 style="margin-bottom:12px">How might we…</h3>
+          <ol class="steps">
+            <li><span>…let each user <b>start from the task</b> they came to do, not from IEAT's structure?</span></li>
+            <li><span>…explain a service <b>fully on one page</b>, so people are ready before they hit e-PP?</span></li>
+            <li><span>…make the <b>hand-off to e-PP</b> feel like one continuous, trustworthy system?</span></li>
+            <li><span>…let returning users <b>check status</b> without logging in just to look?</span></li>
+          </ol>
+        </div>
+        <figure class="shot" style="margin-top:0"><div class="frame" style="--ratio:4000/4911"><img src="../images/ieat/problems.png" alt="Problem summary board" loading="lazy"></div><figcaption>Problems summarised across all six journeys.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">04</span> Information architecture</div>
+      <h2>From a menu shaped like the org chart to a menu shaped like the work.</h2>
+      <div class="body">
+        <p>I regrouped all six navbar categories using every item from the live site. No group shows more than 8 items, and the rest go behind "See all". I then added the entry points the journeys said were missing.</p>
+      </div>
+      <div class="cards">
+        <div><span class="k">New</span><h4>Task Launcher</h4><p>Five common tasks right under the hero, replacing a news carousel that pushed every task below the fold.</p></div>
+        <div><span class="k">New</span><h4>Service Hubs</h4><p>"Read it, then do it" pages for investment, permits and tax privileges, with steps, documents, time and fees in HTML.</p></div>
+        <div><span class="k">New</span><h4>Unified Handoff Layer</h4><p>A bridge between the portal and e-PP that knows whether you're logged out, logged in, or already have a request open.</p></div>
+        <div><span class="k">Revamped</span><h4>Search with synonyms</h4><p>Autocomplete with category hints, and plain words mapped to official ones ("visa" → "การตรวจลงตรา").</p></div>
+        <div><span class="k">New</span><h4>Public &amp; Transparency Zone</h4><p>Complaints, environmental data, CSR and jobs, separated from investor menus.</p></div>
+        <div><span class="k">New</span><h4>Staff utility entry</h4><p>A small "IEAT staff" link in the top bar, leading to login, manuals and guidelines.</p></div>
+      </div>
+      <div class="split">
+        <figure class="shot"><div class="frame" style="--ratio:1576/1249"><img src="../images/ieat/launcher-ia.png" alt="IA: Homepage Task Launcher" loading="lazy"></div><figcaption>Task Launcher IA: five tasks, each routed through a Service Hub before e-PP.</figcaption></figure>
+        <figure class="shot"><div class="frame" style="--ratio:1227/1735"><img src="../images/ieat/handoff-ia.png" alt="IA: Unified Handoff Layer" loading="lazy"></div><figcaption>Handoff Layer IA: three states, one bridge into e-PP.</figcaption></figure>
+      </div>
+      <figure class="shot"><div class="frame" style="--ratio:13031/4305"><img src="../images/ieat/sitemap.png" alt="Revamped sitemap" loading="lazy"></div><figcaption>Revamped sitemap, also cut per persona (P1–P6) to check each one has a short path.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">05</span> Design goals</div>
+      <h2>Before drawing a screen, we agreed on what "better" would mean in numbers.</h2>
+      <div class="body"><p>Each goal ties a problem from the review to a metric, a baseline and a target. The site hasn't launched, so these are <strong>targets, not results</strong>. They set how the release will be judged.</p></div>
+      <div class="table-scroll">
+        <table class="metrics">
+          <thead><tr><th>Goal</th><th>Metric</th><th>Baseline</th><th>Target</th><th>How we'll measure</th></tr></thead>
+          <tbody>
+            <tr><td>Reach e-PP from the portal in ≤ 2 clicks</td><td>Task completion</td><td class="num">42%</td><td class="num target">≥ 85%</td><td>Usability test, 6 users per role</td></tr>
+            <tr><td></td><td>Time to find e-PP</td><td class="num">~45 s</td><td class="num target">≤ 10 s</td><td>Session recording</td></tr>
+            <tr><td>Find the right industrial estate</td><td>Search success</td><td class="num">28%</td><td class="num target">≥ 80%</td><td>Search log, task scenarios</td></tr>
+            <tr><td></td><td>Zero-result searches</td><td class="num">62%</td><td class="num target">≤ 10%</td><td>A/B test, synonyms on/off</td></tr>
+            <tr><td>Service Hub reduces drop-off before applying</td><td>Drop-off rate</td><td class="num">78%</td><td class="num target">≤ 45%</td><td>GA4 funnel exploration</td></tr>
+            <tr><td></td><td>CTA click to e-PP</td><td class="num">~8%</td><td class="num target">≥ 25%</td><td>Event tracking, heatmap</td></tr>
+            <tr><td>Check status without logging in</td><td>Status-check success</td><td class="num">35%</td><td class="num target">≥ 90%</td><td>Time-on-task recording</td></tr>
+            <tr><td></td><td>Time to status</td><td class="num">3–5 min</td><td class="num target">≤ 30 s</td><td>GA4 widget events</td></tr>
+            <tr><td>Task-first navigation</td><td>Time to service</td><td class="num">n/a</td><td class="num target">−50%</td><td>Usability test</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Baselines come from the heuristic review and task walkthroughs on the current site.</p>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">06</span> Concept</div>
+      <h2>Three words set the tone for an authority people need to trust with permits.</h2>
+      <div class="words">
+        <div><b>Trustworthy</b><p>Safe enough to drop your guard. You know you're being looked after and won't be taken advantage of.</p></div>
+        <div><b>Efficient</b><p>Nothing in the way. Sharp, clear, and satisfying because you do less and get more.</p></div>
+        <div><b>Dynamic</b><p>Forward momentum, like Thai industry itself. Flexible, never stuck.</p></div>
+      </div>
+      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/ieat/moodboard.png" alt="Moodboard and design direction" loading="lazy"></div><figcaption>Keyword moodboards became three design directions before we settled on one.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">07</span> Key decisions</div>
+      <h2>The calls that shaped the product, and what each one cost.</h2>
+      <div style="margin-top:28px">
+        <div class="decision">
+          <div class="label">Hand-off</div>
+          <div>
+            <h3>A bridge page instead of an instant redirect to e-PP</h3>
+            <p>The old button threw users onto another domain with no explanation. The Handoff Layer names the service you picked, says you're leaving ieat.go.th, and adapts to three states: <b>not logged in</b> (log in or register), <b>logged in</b> (SSO, one "Continue in e-PP" button), and <b>open request</b> ("View existing request" or "Start new").</p>
+            <div class="tradeoff"><b>Trade-off:</b> one extra screen in the path. We accepted it because the redirect was where trust dropped in every journey. If live status can't be fetched from e-PP, the page falls back to the logged-in state so it never blocks anyone.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="label">Content</div>
+          <div>
+            <h3>Service pages in HTML, not PDF</h3>
+            <p>Every Service Hub covers steps, documents, time and fees on one page, with a language toggle for foreign investors and the e-PP call to action placed after the explanation, not before.</p>
+            <div class="tradeoff"><b>Trade-off:</b> IEAT has to rewrite and maintain content that used to be a scanned file. In return it becomes searchable, readable by screen readers, and fast on mobile.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="label">Homepage</div>
+          <div>
+            <h3>Tasks above the fold, news below</h3>
+            <p>The hero carousel was mostly press releases and procurement notices. The Task Launcher puts the five most common jobs first and routes into Service Hubs before e-PP.</p>
+            <div class="tradeoff"><b>Trade-off:</b> less homepage space for PR. We kept a news section, just lower down.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="label">Scope</div>
+          <div>
+            <h3>What we chose not to do yet</h3>
+            <p>Full English content on every page, and a more prominent complaint channel, are mapped in the persona board but not in this release. Both depend on IEAT content owners, so we chose to ship the structure first.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">08</span> Design system</div>
+      <h2>One system for the portal and e-PP, so moving between them stops feeling like changing websites.</h2>
+      <div class="body"><p>Primitive, semantic, spacing and type tokens, plus 25+ components (forms, steppers, document cards, upload, timeline, language switcher) shared by both teams. The visual mismatch between portal and e-PP was one of the reasons users didn't trust the hand-off.</p></div>
+      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/ieat/design-system.png" alt="IEAT design system: color and typography" loading="lazy"></div><figcaption>Foundations: colour, typography, spacing, radius and shadow tokens.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">09</span> Key screens</div>
+      <h2>Homepage: start from what you came to do.</h2>
+      <figure class="shot tall"><div class="frame" style="--ratio:1440/5389"><img src="../images/ieat/home.png" alt="Homepage with Task Launcher and status widget" loading="lazy"></div><figcaption>Task Launcher under the hero, an always-visible e-PP entry in the navbar, and a status widget that only needs a request number.</figcaption></figure>
+
+      <h2 style="margin-top:72px">Service Hub: understand it fully before you apply.</h2>
+      <div class="split">
+        <figure class="shot"><div class="frame" style="--ratio:1440/2294"><img src="../images/ieat/service-hub.png" alt="Service Hub overview" loading="lazy"></div><figcaption>Services grouped by what you want to do.</figcaption></figure>
+        <figure class="shot"><div class="frame" style="--ratio:1440/2923"><img src="../images/ieat/service-detail.png" alt="Service detail page" loading="lazy"></div><figcaption>Steps, documents, time and fees on one page, then the hand-off.</figcaption></figure>
+      </div>
+
+      <h2 style="margin-top:72px">Status tracker: answers in seconds, not a login.</h2>
+      <div class="split">
+        <figure class="shot"><div class="frame" style="--ratio:1440/2539"><img src="../images/ieat/tracking.png" alt="Status tracking page, desktop" loading="lazy"></div><figcaption>Timeline of each request with the documents attached.</figcaption></figure>
+        <figure class="shot"><div class="frame" style="--ratio:390/1000"><img src="../images/ieat/tracking-mobile.png" alt="Status tracking page, mobile" loading="lazy"></div><figcaption>Mobile, where HR officers check most often.</figcaption></figure>
+      </div>
+
+      <h2 style="margin-top:72px">Document index: every form in one place.</h2>
+      <figure class="shot"><div class="frame" style="--ratio:1440/2474"><img src="../images/ieat/document-index.png" alt="Document and download center" loading="lazy"></div><figcaption>Filter by service type instead of opening ten tabs to collect files.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">10</span> Collaboration</div>
+      <h2>Designing with the people who build it and the people who run it.</h2>
+      <div class="split">
+        <div class="body">
+          <p>I split the screens with a second designer: I owned the homepage, Service Hubs, status tracker, document center and registration, while news, FAQ, payment and complaints were designed in parallel on the same system.</p>
+          <p>QA with developers caught issues worth designing around, not just fixing:</p>
+        </div>
+        <div class="cards" style="margin-top:0;grid-template-columns:1fr">
+          <div><span class="k">Dev note</span><p>Accessibility settings didn't persist between pages. We spec'd saving them to localStorage and reading them on page load.</p></div>
+          <div><span class="k">Dev note</span><p>Quick links disappeared in English because the widget rendered per locale. It became a global component.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="chapter">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">11</span> Status &amp; reflection</div>
+      <h2>Not launched yet. Here's how we'll know if it worked.</h2>
+      <div class="body">
+        <p>The redesign hasn't launched yet. After launch the goals above will be checked with moderated usability tests (6 users per role), GA4 funnels, Hotjar heatmaps and an A/B test on synonym search.</p>
+        <p><strong>What I learned:</strong> on a portal this size, the most valuable design work happened before any UI. Getting six personas and their journeys onto one wall made the shared failure point, the e-PP hand-off, obvious to everyone, and turned "redesign the website" into a short list of decisions we could measure.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap next">
+    <a href="centralize.html"><span><span class="eyebrow">Next case study</span><br><span class="t">Centralize Management, Airports of Thailand →</span></span></a>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>© 2026 Thanapoom Puchat</span><a href="../index.html">← Back to all work</a></div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
