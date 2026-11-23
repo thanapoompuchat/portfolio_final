@@ -157,4 +157,24 @@
     el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
+  // IEAT title: hover files a permit; the status steps to Approved and the underline fills
+  document.querySelectorAll('.ip').forEach(function (el) {
+    var lb = el.querySelector('.ip-lb'), dots = el.querySelectorAll('.ip-st i'), timers = [];
+    var steps = ['Submitted', 'In review', 'Approved ✓'];
+    var gap = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 750;
+    function clear() { timers.forEach(clearTimeout); timers = []; }
+    function step(n) {
+      lb.textContent = steps[n];
+      dots.forEach(function (d, k) { d.classList.toggle('f', k <= n); });
+      el.style.setProperty('--p', (n + 1) / steps.length);
+      el.classList.toggle('ok', n === steps.length - 1);
+    }
+    function start() { if (el.classList.contains('hv')) return; clear(); el.classList.add('hv'); steps.forEach(function (_, n) { timers.push(setTimeout(function () { step(n); }, 150 + n * gap)); }); }
+    function stop() { clear(); el.classList.remove('hv', 'ok'); el.style.setProperty('--p', 0); dots.forEach(function (d) { d.classList.remove('f'); }); lb.textContent = steps[0]; }
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', start);
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
 })();
