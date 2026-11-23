@@ -592,3 +592,18 @@ a { color: inherit; }
 html.cur-view .cur-bub span { transform: scale(1); opacity: 1; }
 html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view .item *, html.cur-view .ie-kw a, html.cur-view .pn a, html.cur-view .pn a * { cursor: none; }
 @media (hover: none), (pointer: coarse) { .cur-bub { display: none; } }
+
+/* ---------- IEAT overview + before/after ---------- */
+.ie-tldr { padding-top: 0; }
+.ie-tldr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; padding: 28px 0 0; border-top: 1px solid var(--line); }
+.ie-tldr-grid > div span.tiny { display: block; color: var(--accent); margin-bottom: 8px; }
+.ie-tldr-grid > div p { margin: 0; font-size: 15px; line-height: 1.6; }
+.ie-ba { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-bottom: 26px; }
+.ie-ba-c { position: relative; margin: 0; }
+.ie-ba-c .frame { overflow: hidden; border-radius: 10px; border: 1px solid var(--line); }
+.ie-ba-c .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.ie-ba-t { position: absolute; top: 12px; left: 12px; z-index: 2; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border-radius: 99px; color: var(--on-accent); }
+.ie-ba-t.t-before { background: var(--muted); }
+.ie-ba-t.t-after { background: var(--accent); }
+.ie-ba-c figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+@media (max-width: 720px) { .ie-tldr-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; } .ie-ba { grid-template-columns: minmax(0, 1fr); } }
