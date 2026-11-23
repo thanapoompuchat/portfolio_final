@@ -83,4 +83,33 @@
     el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
+
+  // BeTask title: hover "signs in" - letters turn to password dots, then reveal with a live clock
+  document.querySelectorAll('.login').forEach(function (el) {
+    var w = el.querySelector('.lg-w'), st = el.querySelector('.lg-st'), ck = el.querySelector('.lg-clock');
+    var text = w.dataset.text, timers = [], tick = null;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function clock() { var d = new Date(); ck.textContent = d.toTimeString().slice(0, 8); }
+    function clear() { timers.forEach(clearTimeout); timers = []; clearInterval(tick); }
+    function start() {
+      clear(); el.classList.remove('ok'); el.classList.add('hv');
+      st.textContent = 'Signing in'; ck.textContent = '';
+      var step = reduce ? 0 : 55;
+      w.classList.add('masked');
+      for (var n = 1; n <= text.length; n++) (function (n) {
+        later(function () { w.textContent = '\u2022'.repeat(n) + text.slice(n); }, n * step);
+      })(n);
+      later(function () {
+        w.classList.remove('masked'); w.textContent = text;
+        el.classList.add('ok'); st.textContent = 'Signed in'; clock(); tick = setInterval(clock, 1000);
+      }, reduce ? 0 : text.length * step + 450);
+    }
+    function stop() { clear(); el.classList.remove('hv', 'ok'); w.classList.remove('masked'); w.textContent = text; }
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', start);
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
 })();

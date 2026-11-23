@@ -373,3 +373,14 @@ a { color: inherit; }
 .loc:is(.hv, :focus-visible, .on) .loc-w { color: var(--accent); }
 .loc-w.rtl { direction: rtl; }
 @media (max-width: 600px) { .loc-tag { position: absolute; right: 0; bottom: 100%; margin: 0 0 6px; } }
+/* BeTask title: hover signs you in like the portal (password dots, then a live clock) */
+.login { position: relative; display: inline-flex; align-items: flex-start; gap: .18em; cursor: default; outline: none; }
+.lg-w { display: inline-block; white-space: nowrap; transition: color .3s; }
+.lg-w.masked { color: var(--muted); letter-spacing: .02em; }
+.lg-tag { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/1 'JetBrains Mono', monospace; letter-spacing: .04em; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 7px 11px; margin-top: .35em; white-space: nowrap; opacity: 0; transform: translateY(6px) scale(.85); transition: opacity .25s, transform .35s cubic-bezier(.3,1.6,.5,1), background .3s, color .3s, border-color .3s; }
+.lg-tag i { width: 7px; height: 7px; border-radius: 50%; background: #e0a100; }
+.lg-tag .lg-clock { color: inherit; opacity: .75; }
+.login.hv .lg-tag, .login.on .lg-tag { opacity: 1; transform: none; }
+.login.ok .lg-tag { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.login.ok .lg-tag i { background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.3); }
+.login.ok .lg-w { color: var(--accent); }
