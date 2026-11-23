@@ -11,6 +11,6 @@ Static site, no build step. Open `index.html` or deploy the folder to any static
 
 A missing image shows a labelled placeholder until the file exists.
 
-`images/ieat/`: cover, persona, journey, problems, sitemap, launcher-ia, handoff-ia, moodboard, design-system, home, service-hub, service-detail, tracking, tracking-mobile, document-index
+`images/ieat/`: cover (jpg), persona, journey (jpg), problems (jpg), sitemap, launcher-ia, handoff-ia, moodboard, design-system, home, service-hub, service-detail, tracking, tracking-mobile, document-index
 
-`images/centralize/`: dashboard, expert-review, sitemap, roles, design-system, login, report, certificate
+`images/centralize/`: dashboard, sitemap, roles, design-system, login, report, certificate

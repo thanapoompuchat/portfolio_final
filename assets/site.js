@@ -20,7 +20,7 @@
         box.appendChild(ph);
       }
     };
-    if (img.complete && img.naturalWidth === 0) mark();
+    if (img.complete && img.naturalWidth === 0 && img.loading !== 'lazy') mark();
     img.addEventListener('error', mark);
   });
 
