@@ -271,3 +271,11 @@ a { color: inherit; }
 .item:hover { background: color-mix(in srgb, var(--c) 7%, transparent); }
 @media (max-width: 760px) { .item { grid-template-columns: 36px 1fr 60px; } .item .pv, .more span { display: none; } }
 @media (hover: none) { .item .pv { display: none; } }
+.fcard .chrome i:nth-child(1) { background: #ff5f57; }
+.fcard .chrome i:nth-child(2) { background: #febc2e; }
+.fcard .chrome i:nth-child(3) { background: #28c840; }
+.fcard .chrome { height: 28px; gap: 8px; background: #e9e9eb; }
+.fcard .chrome i { width: 11px; height: 11px; }
+.fcard .fshot img { height: calc(100% - 28px); }
+@media (max-width: 1240px) { .fcard p { min-height: 3.1em; } }
+.fcard .tags span.badge { background: var(--a); border-color: var(--a); color: #fff; opacity: 1; font-weight: 600; }
