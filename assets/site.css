@@ -585,3 +585,22 @@ a { color: inherit; }
 @media (max-width: 760px) { .ie-ab { grid-template-columns: minmax(0, 1fr); } .ie-wf { height: 420px; } .ie-col { padding: 16px; } }
 @media (max-width: 480px) { .ie-kw { grid-template-columns: minmax(0, 1fr); } .ie-tier { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
 .ie-col .ie-wf { flex: 1 1 auto; min-height: 560px; height: 0; } @media (max-width: 760px) { .ie-col .ie-wf { min-height: 420px; } }
+
+/* ---------- Custom cursor ---------- */
+html.cur, html.cur * { cursor: none !important; }
+html.cur input:not([type=radio]):not([type=checkbox]), html.cur textarea, html.cur [contenteditable] { cursor: text !important; }
+.cur-dot, .cur-ring { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity .25s; will-change: transform; }
+html.cur-in .cur-dot, html.cur-in .cur-ring { opacity: 1; }
+.cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--accent); }
+.cur-ring { width: 0; height: 0; }
+.cur-ring::before { content: ""; position: absolute; left: -17px; top: -17px; width: 34px; height: 34px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid var(--fg); opacity: .45; transition: transform .35s cubic-bezier(.2,.9,.2,1), background .25s, border-color .25s, opacity .25s; }
+.cur-lb { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scale(.6); font-size: 11px; font-weight: 600; line-height: 1; letter-spacing: .06em; text-transform: uppercase; color: var(--on-accent); white-space: nowrap; opacity: 0; transition: opacity .2s, transform .35s cubic-bezier(.2,.9,.2,1); }
+html.cur-hit .cur-ring::before { transform: scale(1.5); border-color: var(--accent); opacity: 1; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+html.cur-hit .cur-dot { opacity: 0; }
+html.cur-view .cur-ring::before { transform: scale(2.4); background: var(--accent); border-color: var(--accent); opacity: 1; }
+html.cur-view .cur-lb { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+html.cur-view .cur-dot, html.cur-text .cur-dot, html.cur-text .cur-ring { opacity: 0; }
+html.cur-down .cur-ring::before { transform: scale(.8); }
+html.cur-down.cur-hit .cur-ring::before { transform: scale(1.25); }
+html.cur-down.cur-view .cur-ring::before { transform: scale(2.1); }
+@media (hover: none), (pointer: coarse) { .cur-dot, .cur-ring { display: none; } }

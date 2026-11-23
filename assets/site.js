@@ -177,4 +177,45 @@
     el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
+
+  /* Custom cursor: dot + trailing ring. Fine pointers only. */
+  (function () {
+    if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var root = document.documentElement;
+    var dot = document.createElement('div'), ring = document.createElement('div');
+    dot.className = 'cur-dot'; ring.className = 'cur-ring';
+    ring.innerHTML = '<span class="cur-lb"></span>';
+    dot.setAttribute('aria-hidden', 'true'); ring.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(ring); document.body.appendChild(dot);
+    root.classList.add('cur');
+    var lb = ring.firstChild;
+    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mx = -100, my = -100, rx = -100, ry = -100, raf = 0;
+    function loop() {
+      rx += (mx - rx) * (still ? 1 : 0.2); ry += (my - ry) * (still ? 1 : 0.2);
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+      raf = (Math.abs(mx - rx) + Math.abs(my - ry) > 0.1) ? requestAnimationFrame(loop) : 0;
+    }
+    var VIEW = '.fcard, .item, .kcard a, .ie-full, .ie-kw a, a.full, .pn a';
+    var TEXT = 'input:not([type=radio]):not([type=checkbox]), textarea, select, [contenteditable]';
+    var HIT = 'a, button, label, summary, [role=button], [tabindex]:not([tabindex="-1"])';
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+      root.classList.add('cur-in');
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+    document.addEventListener('mouseover', function (e) {
+      var t = e.target;
+      var v = t.closest && t.closest(VIEW);
+      var pn = v && v.closest('.pn');
+      root.classList.toggle('cur-view', !!v);
+      lb.textContent = v ? (pn ? (v.classList.contains('pn-p') ? 'Prev' : 'Next') : (v.matches('.fcard, .item') ? 'View' : 'Open')) : '';
+      root.classList.toggle('cur-hit', !v && !!(t.closest && t.closest(HIT)));
+      root.classList.toggle('cur-text', !!(t.closest && t.closest(TEXT)));
+    });
+    document.addEventListener('mouseleave', function () { root.classList.remove('cur-in'); });
+    document.addEventListener('mousedown', function () { root.classList.add('cur-down'); });
+    document.addEventListener('mouseup', function () { root.classList.remove('cur-down'); });
+  })();
 })();
