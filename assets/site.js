@@ -1,17 +1,8 @@
-// Nav border on scroll, reveal-on-scroll, and placeholders for images not exported yet.
+// Reveal-on-scroll, and a labelled placeholder for any image that fails to load.
 (function () {
-  var nav = document.querySelector('.nav');
-  if (nav) {
-    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  // A figure whose image fails to load shows its alt text as a labelled placeholder,
-  // so the layout holds until the real PNG is dropped into /images.
-  document.querySelectorAll('.shot .frame img, .feature .visual img, .card .thumb img').forEach(function (img) {
+  document.querySelectorAll('.shot .frame img, .thumbs .frame img').forEach(function (img) {
     var mark = function () {
-      var box = img.closest('.frame') || img.parentElement;
+      var box = img.closest('.frame');
       box.classList.add('missing');
       if (!box.querySelector('.ph')) {
         var ph = document.createElement('span');

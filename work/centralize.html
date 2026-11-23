@@ -4,165 +4,58 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Centralize Management — Thanapoom Puchat</title>
-  <meta name="description" content="Case study: expert review, role-based sitemap and design system for the back-office tool Airports of Thailand uses to run automated passport gates.">
+  <meta name="description" content="Case study: expert review, role-based sitemap and design system for the tool Airports of Thailand uses to run automated passport gates.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body style="--accent:#1565c0;--accent-ink:#ffffff;--accent-soft:#e6eff9">
-
-<nav class="nav">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Thanapoom Puchat <span>/ Pleum</span></a>
-    <ul>
-      <li><a class="link" href="../index.html#work">Work</a></li>
-      <li><a class="link" href="../index.html#about">About</a></li>
-      <li><a class="link" href="../index.html#contact">Contact</a></li>
-    </ul>
-    <a class="cta" href="mailto:thanapoompuchat@gmail.com">Say hello</a>
-  </div>
-</nav>
-
-<header class="case-hero" style="background:#0d2a4d">
-  <div class="wrap">
-    <div class="eyebrow">Case study 02 · Airports of Thailand (AOT)</div>
-    <h1>When every card is outlined in red, nothing looks urgent.</h1>
-    <p class="lede">Centralize Management is the back-office system staff at Suvarnabhumi use to monitor automated passport gates, devices, e-certificates, users and permissions. It had grown one requirement at a time. I led the revamp: an expert review, a sitemap rebuilt around roles, and a design system to hold it together.</p>
-    <figure class="cover shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/dashboard.png" alt="Centralize Management: redesigned dashboard"></div></figure>
-  </div>
-</header>
-
+<body style="--bg:#eef2f8;--fg:#0b1a2e;--muted:#5f6b7c;--panel:#ffffff;--line:#d6dde8;--accent:#1565c0;--on-accent:#fff">
+<header class="bar"><div class="wrap">
+  <a href="../index.html#top">Thanapoom Puchat</a>
+  <nav><a href="../index.html#work">Work</a><a class="hide-sm" href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</div></header>
 <main>
-  <div class="wrap">
-    <dl class="facts">
-      <div><dt>My role</dt><dd>Lead UX/UI for the revamp: expert review, role mapping, design system, hi-fi</dd></div>
-      <div><dt>Type</dt><dd>Enterprise operations / monitoring web app</dd></div>
-      <div><dt>Client</dt><dd>Airports of Thailand (AOT), Suvarnabhumi Airport</dd></div>
-      <div><dt>Users</dt><dd>Operations staff in two roles: Action and Monitor</dd></div>
-      <div><dt>Tools</dt><dd>Figma, FigJam, Nielsen's 10 heuristics</dd></div>
-    </dl>
-
-    <div class="tldr">
-      <div><h4>The problem</h4><p>Menus followed how features were built, not how staff work. Screens were dense, statuses inconsistent, and risky actions had no confirmation step.</p></div>
-      <div><h4>What I did</h4><p>Audited the system against Nielsen's heuristics, grouped findings into 9 systemic pain points, rebuilt the sitemap around user roles and stories, and built a design system for the new UI.</p></div>
-      <div><h4>Why it matters</h4><p>In an airport, a missed alert means a stuck passenger or a gate that won't open. Clear hierarchy is an operational requirement here, not polish.</p></div>
-    </div>
-  </div>
-
-  <!-- 01 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">01</span> Context</div>
-      <h2>One screen has to watch gates, devices and four external systems at once.</h2>
-      <div class="body">
-        <p>Each automated gate depends on immigration's biometrics system, PIBICS, the APPS flight gateway and a digital signage service. Staff need to see the whole airport at a glance, by zone and direction, and react when something breaks: a printer running out of paper, a passenger stuck in a gate, a bag left behind, someone climbing past the barrier, or a watch-list match.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">02</span> Expert review</div>
-      <h2>I reviewed every module against Nielsen's 10 heuristics before proposing a single screen.</h2>
-      <div class="body"><p>For each screen I logged the issue, the heuristic it violated, what it already did well, and a recommendation. Two examples:</p></div>
-      <div class="cards">
-        <div><span class="k">Aesthetic &amp; minimalist · Visibility</span><h4>Red borders everywhere</h4><p>Many dashboard cards used a red outline, so staff couldn't tell critical issues from ordinary states.</p><p style="margin-top:10px"><b style="color:var(--ink)">Fix:</b> show only gate name, main status, critical issue and the primary action, with clearer spacing and hierarchy.</p></div>
-        <div><span class="k">Error prevention</span><h4>Approve and Resend with no review</h4><p>Approving access and re-sending travel records to external systems happened in one click.</p><p style="margin-top:10px"><b style="color:var(--ink)">Fix:</b> a review/confirmation step showing exactly what will change or be sent.</p></div>
-        <div><span class="k">Help &amp; documentation · Achieved</span><h4>Self-serve upload help</h4><p>The JSON upload page already had a terms modal explaining each step and common errors. That pattern was worth keeping and reusing.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">03</span> Pain points</div>
-      <h2>Dozens of screen-level issues came down to nine system-level problems.</h2>
-      <ol class="steps">
-        <li><span><b>IA built around modules.</b> Related functions were spread across menus, so staff had to remember which menu, which button, and where next.</span></li>
-        <li><span><b>No workflow.</b> Gate control put scope, on/off, conditions and alerts on one page instead of a sequence of Scope → Control → Conditions → Alert → Review → Save.</span></li>
-        <li><span><b>Dense screens, no priority.</b> Reports showed KPIs, charts, filters and tables at the same visual weight.</span></li>
-        <li><span><b>Too many filters.</b> Filters had to be set again each time, with no quick filters or saved views.</span></li>
-        <li><span><b>Inconsistent UI.</b> Add/Edit was a full page in some modules and a modal in others. Badge colours meant different things per page.</span></li>
-        <li><span><b>Read-only vs edit unclear.</b> Detail pages looked like forms, so users weren't sure what they could change.</span></li>
-        <li><span><b>Risky permission management.</b> Permissions were ticked one by one in long lists, which made them hard to review.</span></li>
-        <li><span><b>System language.</b> Menu names reflected modules and data types, not the job.</span></li>
-        <li><span><b>Feature creep.</b> Each new requirement added a menu, pattern, modal or filter.</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 04 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">04</span> Roles &amp; sitemap</div>
-      <h2>I rebuilt the sitemap around what each role does, written as user stories.</h2>
-      <div class="body"><p>Every screen in the new sitemap is tied to a role and a story. That made it easy to spot pages nobody needed, and actions that needed a review step.</p></div>
-      <div class="cards">
-        <div><span class="k">Action role</span><h4>Fix it</h4><p>"As an Action user, I want to pick a gate or system with a problem from the dashboard, so I can fix it and bring the service back."</p></div>
-        <div><span class="k">Action + Monitor</span><h4>Watch it</h4><p>"As an Action + Monitor user, I want to follow the overview and open any anomaly, so I can resolve it and check the result afterwards."</p></div>
-        <div><span class="k">Action role</span><h4>Approve it</h4><p>"I want to filter requests by date, review the requester, then approve or reject, so only qualified staff get access."</p></div>
-      </div>
-      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/sitemap.png" alt="Role-based sitemap" loading="lazy"></div><figcaption>Sitemap of every screen, grouped by the job it supports.</figcaption></figure>
-      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/roles.png" alt="Role responsibilities and user stories" loading="lazy"></div><figcaption>Each role's goal, objective and user stories, which drive what each screen must support.</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- 05 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">05</span> Design system</div>
-      <h2>A system built for long shifts and numbers you have to read in a hurry.</h2>
-      <div class="cards">
-        <div><span class="k">Type</span><h4>Sarabun + IBM Plex Mono</h4><p>Sarabun for Thai/English UI. Tabular IBM Plex Mono for IDs, counts and timestamps, so columns line up.</p></div>
-        <div><span class="k">Colour</span><h4>Status means one thing</h4><p>Semantic success, warning, error and info scales, plus a text-opacity ladder, so a red badge is the same red, with the same meaning, on every page.</p></div>
-        <div><span class="k">Layout</span><h4>4 / 8 / 12 columns</h4><p>Responsive grid from 320px to 1440px+, with split patterns for detail + rail, comparison and card grids.</p></div>
-        <div><span class="k">Components</span><h4>Domain parts, not just buttons</h4><p>Gate, Equipment, Upload, Notification, Timeline, Stepper, Table and Chart, plus Login, Profile and Error page templates.</p></div>
-      </div>
-      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/design-system.png" alt="Centralize design system foundations and components" loading="lazy"></div><figcaption>Foundations and components: colour, type, radius, shadow, spacing, inputs, badges, buttons.</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- 06 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">06</span> Key screens</div>
-      <h2>Dashboard: one calm view, with the real problems standing out.</h2>
-      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/dashboard.png" alt="Gate monitoring dashboard" loading="lazy"></div><figcaption>Gates by zone and direction. Only real faults get the error colour.</figcaption></figure>
-
-      <h2 style="margin-top:72px">Login: every state designed, not just the happy path.</h2>
-      <div class="body" style="margin-top:14px"><p>Failed login, temporary lock, suspended or pending account, forgot password (sending, user not found, sent, contact admin) and reset (rules, mismatch, expired link, success). Each one was a real support call waiting to happen.</p></div>
-      <figure class="shot"><div class="frame" style="--ratio:16/9"><img src="../images/centralize/login.png" alt="Login screen and its states" loading="lazy"></div></figure>
-
-      <div class="split">
-        <figure class="shot"><div class="frame" style="--ratio:16/10"><img src="../images/centralize/report.png" alt="Report page" loading="lazy"></div><figcaption>Reports: a summary first, then detail on demand.</figcaption></figure>
-        <figure class="shot"><div class="frame" style="--ratio:16/10"><img src="../images/centralize/certificate.png" alt="E-certificate management" loading="lazy"></div><figcaption>E-certificates: upload validation that says what's wrong and how to fix it.</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 -->
-  <section class="chapter">
-    <div class="wrap">
-      <div class="eyebrow"><span class="num">07</span> Reflection</div>
-      <h2>In an operations tool, restraint is the feature.</h2>
-      <div class="body">
-        <p>The old system wasn't missing functions. It was missing an order. Most of the work was removing emphasis, so that when something does turn red, people move.</p>
-        <p><strong>Next:</strong> validate the new IA with Action and Monitor users through task-based tests, starting with incident response from the dashboard and permission approval.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap next">
-    <a href="vibirs.html"><span><span class="eyebrow">Next project</span><br><span class="t">Vibirs: music that starts from how you feel →</span></span></a>
-  </div>
+<section class="hero"><div class="wrap">
+  <span class="label hl">Centralize Management</span>
+  <h1 class="brand">Centralize<br><em>Management</em></h1>
+  <p class="tagline">A calmer control room for automated passport gates at Suvarnabhumi Airport.</p>
+  <div class="meta"><div><b>Role</b>Lead UX/UI for the revamp</div><div><b>Client</b>Airports of Thailand (AOT)</div><div><b>Users</b>Ops staff: Action & Monitor</div><div><b>Method</b>Nielsen heuristics, user stories</div></div>
+  <figure class="shot reveal"><div class="frame" style="--ar:16/9"><img src="../images/centralize/dashboard.png" alt="Redesigned dashboard" loading="lazy"></div></figure>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Expert review</span>
+  <h2>When every card is red, <span class="hl">nothing looks urgent.</span></h2><p class="sub">I reviewed every module against Nielsen’s 10 heuristics first.</p>
+  <div class="content"><div class="cards reveal" style="--cols:3"><div class="card"><span class="k">Visibility</span><h4>Red borders everywhere</h4><p>Critical faults looked like normal states.</p></div><div class="card"><span class="k">Error prevention</span><h4>One-click approve & resend</h4><p>No review before risky actions.</p></div><div class="card"><span class="k">Kept</span><h4>Upload help modal</h4><p>A good pattern worth reusing.</p></div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Pain points</span>
+  <h2>Dozens of screen issues, <span class="hl">nine system problems.</span></h2>
+  <div class="content"><div class="cards reveal" style="--cols:3"><div class="card"><span class="big">01</span><h4>IA built around modules</h4></div><div class="card"><span class="big">02</span><h4>No workflow order</h4></div><div class="card"><span class="big">03</span><h4>Dense, no priority</h4></div><div class="card"><span class="big">04</span><h4>Filters reset every time</h4></div><div class="card"><span class="big">05</span><h4>Inconsistent patterns</h4></div><div class="card"><span class="big">06</span><h4>Read-only looks editable</h4></div><div class="card"><span class="big">07</span><h4>Risky permissions</h4></div><div class="card"><span class="big">08</span><h4>System language</h4></div><div class="card insight"><span class="big">09</span><h4>Feature creep</h4><p>Each requirement added a menu.</p></div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Roles & sitemap</span>
+  <h2>Every screen tied to <span class="hl">a role and a story.</span></h2>
+  <div class="content"><div class="cards reveal" style="--cols:3"><div class="card"><span class="k">Action</span><h4>Fix it</h4><p>Pick a broken gate, bring service back.</p></div><div class="card"><span class="k">Action + Monitor</span><h4>Watch it</h4><p>Follow the overview, open anomalies.</p></div><div class="card"><span class="k">Action</span><h4>Approve it</h4><p>Review requesters before granting access.</p></div></div></div><div class="content"><figure class="shot contain reveal"><div class="frame" style="--ar:1800/847"><img src="../images/centralize/roles.png" alt="Role goals and user stories" loading="lazy"></div><figcaption><a href="../images/centralize/roles.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure></div><div class="content"><figure class="shot contain reveal"><div class="frame" style="--ar:1800/1186"><img src="../images/centralize/sitemap.png" alt="Role-based sitemap" loading="lazy"></div><figcaption>Sitemap grouped by job.<a href="../images/centralize/sitemap.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Design system</span>
+  <h2>Built for long shifts and <span class="hl">numbers read in a hurry.</span></h2>
+  <div class="content"><div class="cards reveal" style="--cols:4"><div class="card"><span class="k">Type</span><h4>Sarabun + IBM Plex Mono</h4><p>Tabular digits for IDs and times.</p></div><div class="card"><span class="k">Colour</span><h4>Status means one thing</h4><p>Same red, same meaning, every page.</p></div><div class="card"><span class="k">Grid</span><h4>4 / 8 / 12 columns</h4><p>320px to 1440px+.</p></div><div class="card"><span class="k">Parts</span><h4>Domain components</h4><p>Gate, Equipment, Timeline, Stepper.</p></div></div></div><div class="content"><figure class="shot reveal"><div class="frame" style="--ar:16/9"><img src="../images/centralize/design-system.png" alt="Design system foundations" loading="lazy"></div><figcaption>Colour foundations.<a href="../images/centralize/design-system.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Key screens</span>
+  <h2>One calm view where <span class="hl">real problems stand out.</span></h2><p class="sub">Only real faults get the error colour.</p>
+  <div class="content"><figure class="shot reveal"><div class="frame" style="--ar:16/10"><img src="../images/centralize/dashboard.png" alt="Gate monitoring dashboard" loading="lazy"></div><figcaption>Dashboard.<a href="../images/centralize/dashboard.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure></div><div class="content"><figure class="shot contain reveal"><div class="frame" style="--ar:1586/860"><img src="../images/centralize/login.png" alt="Login and its states" loading="lazy"></div><figcaption>Login: every state, not just the happy path.</figcaption></figure></div><div class="content"><div class="duo"><figure class="shot reveal"><div class="frame" style="--ar:4/3"><img src="../images/centralize/report.png" alt="Report page" loading="lazy"></div><figcaption>Reports: summary first.<a href="../images/centralize/report.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure><figure class="shot reveal"><div class="frame" style="--ar:4/3"><img src="../images/centralize/certificate.png" alt="E-certificate management" loading="lazy"></div><figcaption>Upload errors that say how to fix them.<a href="../images/centralize/certificate.png" target="_blank" rel="noopener">Full screen ↗</a></figcaption></figure></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">Reflection</span>
+  <h2>In an operations tool, <span class="hl">restraint is the feature.</span></h2><p class="sub">Most of the work was removing emphasis. Next: task-based tests with Action and Monitor users.</p>
+  
+</div></section>
+<div class="wrap"><a class="next" href="vibirs.html"><span><span class="tiny">Next project</span><br><span class="t">Vibirs</span></span><span class="t">→</span></a></div>
 </main>
-
-<footer class="foot">
-  <div class="wrap"><span>© 2026 Thanapoom Puchat</span><a href="../index.html">← Back to all work</a></div>
-</footer>
+<footer class="wrap end tiny"><span>© 2026 Thanapoom Puchat</span><a href="../index.html#work">All work</a></footer>
 <script src="../assets/site.js"></script>
 </body>
 </html>
