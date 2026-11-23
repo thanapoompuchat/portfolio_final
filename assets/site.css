@@ -298,3 +298,6 @@ a { color: inherit; }
 }.brands { gap: 6px; }
 .brands > .tiny { margin-right: 4px; }
 .brand { padding: 7px 10px; letter-spacing: .04em; }
+/* row hover preview: composed 16:10 thumbnails */
+.item .pv { width: 340px; object-fit: cover; object-position: center; background: none; border-radius: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.28); transform: translateY(-50%) rotate(-3deg) scale(.9); }
+.item:hover .pv { transform: translateY(-50%) rotate(-1.5deg) scale(1); }
