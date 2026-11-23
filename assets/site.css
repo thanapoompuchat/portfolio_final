@@ -235,3 +235,7 @@ a { color: inherit; }
 .about .rows:not(:first-child) .row { grid-template-columns: 84px minmax(0, 1fr); row-gap: 2px; }
 .about .rows:not(:first-child) .row span:last-child { grid-column: 2; font-size: 12.5px; }
 @media (max-width: 860px) { .about .grid > div:last-child { grid-template-columns: 1fr; } }
+.about .rows { align-content: start; }
+.dark { --muted: #a3a3a3; }
+.rows .row span:last-child { color: #bdbdbd; }
+.rows .row span:nth-child(2) { color: #f2f2f2; }
