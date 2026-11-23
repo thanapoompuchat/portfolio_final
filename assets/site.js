@@ -198,4 +198,13 @@
     });
     document.addEventListener('mouseleave', function () { root.classList.remove('cur-view'); });
   })();
+
+  /* Scale fixed-width UI mockups to their container. */
+  (function () {
+    var fits = document.querySelectorAll('[data-fit]');
+    if (!fits.length) return;
+    function run() { fits.forEach(function (f) { var w = +f.getAttribute('data-fit'); var inner = f.firstElementChild; if (inner) inner.style.zoom = Math.min(1, f.clientWidth / w); }); }
+    run(); window.addEventListener('resize', run);
+    if (window.ResizeObserver) { var ro = new ResizeObserver(run); fits.forEach(function (f) { ro.observe(f); }); }
+  })();
 })();
