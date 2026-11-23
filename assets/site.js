@@ -38,4 +38,18 @@
     }
     b.addEventListener('mouseenter', fit); b.addEventListener('focus', fit);
   });
+
+  // CultureAI audit demo: count the score down, tap to toggle on touch screens
+  document.querySelectorAll('.audit').forEach(function (a) {
+    var num = a.querySelector('.a-num'), t = null;
+    function run() {
+      clearInterval(t); var v = 100, end = 58; num.textContent = v;
+      t = setInterval(function () { v -= 2; if (v <= end) { v = end; clearInterval(t); } num.textContent = v; }, 28);
+    }
+    function reset() { clearInterval(t); num.textContent = '--'; }
+    a.addEventListener('mouseenter', run);
+    a.addEventListener('mouseleave', function () { if (!a.classList.contains('on')) reset(); });
+    a.addEventListener('focus', run);
+    a.addEventListener('click', function () { a.classList.toggle('on'); if (a.classList.contains('on')) run(); else reset(); });
+  });
 })();
