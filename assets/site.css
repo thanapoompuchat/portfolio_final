@@ -171,7 +171,7 @@ a { color: inherit; }
 .shot figcaption a:hover { border-color: var(--fg); }
 .slide.tight { padding-top: clamp(32px, 5vw, 64px); }
 .content + .content { margin-top: 14px; }
-.about .me img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin-bottom: 18px; filter: grayscale(1); }
+.about .me img { width: 100%; max-width: 380px; aspect-ratio: 1/1; border-radius: 24px; object-fit: cover; object-position: center top; margin-bottom: 28px; }
 .index .thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 36px; }
 .index .thumbs a { text-decoration: none; }
 .index .thumbs .frame { border-radius: var(--r); overflow: hidden; aspect-ratio: 16/10; background: var(--c); }
@@ -209,3 +209,13 @@ a { color: inherit; }
 .prose { font-size: 15px; color: var(--muted); max-width: 640px; margin: 0; }
 .prose + .prose { margin-top: 12px; }
 .slide.side .content + .content { margin-top: 32px; }
+
+.about h2 { font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -.03em; font-weight: 700; }
+.about .me p { max-width: 400px; }
+.about .skills { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 28px; }
+.about .skills span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; border: 1px solid #444; border-radius: 99px; padding: 6px 12px; color: #ddd; }
+.status { display: inline-flex !important; align-items: center; gap: 8px; color: var(--fg) !important; }
+.status i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+.status i::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #22c55e; animation: ping 1.6s cubic-bezier(0,0,.2,1) infinite; }
+@keyframes ping { 75%, 100% { transform: scale(2.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .status i::after { animation: none; } }
