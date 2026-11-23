@@ -24,4 +24,18 @@
   } else {
     items.forEach(function (el) { el.classList.add('in'); });
   }
+
+  // keep brand hover previews inside the viewport
+  document.querySelectorAll('.brand').forEach(function (b) {
+    var pop = b.querySelector('.pop'); if (!pop) return;
+    function fit() {
+      var op = pop.offsetParent; if (!op) return;
+      var left = op.getBoundingClientRect().left + pop.offsetLeft - pop.offsetWidth / 2;
+      var right = left + pop.offsetWidth, w = document.documentElement.clientWidth, m = 16, dx = 0;
+      if (right > w - m) dx = (w - m) - right;
+      if (left + dx < m) dx = m - left;
+      pop.style.setProperty('--dx', dx + 'px');
+    }
+    b.addEventListener('mouseenter', fit); b.addEventListener('focus', fit);
+  });
 })();

@@ -285,19 +285,16 @@ a { color: inherit; }
 .brand { position: relative; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--line); border-radius: 99px; cursor: default; transition: background .2s, color .2s, border-color .2s; outline: none; }
 .brand:hover, .brand:focus { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
-/* brand hover: frameless screens, no white padding */
-.brand .pop { position: absolute; left: 50%; bottom: calc(100% + 12px); display: flex; align-items: flex-end; gap: 8px; opacity: 0; pointer-events: none; transform: translate(-50%, 8px) scale(.96); transform-origin: bottom center; transition: opacity .25s, transform .3s cubic-bezier(.2,.7,.2,1); z-index: 5; }
+/* brand hover: frameless screens, no white padding; JS sets --dx to keep it on screen */
+.brand .pop { position: absolute; left: 50%; bottom: calc(100% + 12px); display: flex; align-items: flex-end; gap: 8px; opacity: 0; pointer-events: none; transform: translate(calc(-50% + var(--dx, 0px)), 8px) scale(.96); transform-origin: bottom center; transition: opacity .25s, transform .3s cubic-bezier(.2,.7,.2,1); z-index: 5; }
 .brand .pop img { display: block; height: 220px; width: auto; max-width: none; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,.3); background: none; padding: 0; }
-.brand:hover .pop, .brand:focus .pop { opacity: 1; transform: translate(-50%, 0) scale(1); }
-.brands .brand:nth-child(-n+3) .pop { left: 0; transform: translate(0, 8px) scale(.96); }
-.brands .brand:nth-child(-n+3):hover .pop, .brands .brand:nth-child(-n+3):focus .pop { transform: translate(0, 0) scale(1); }
-.brands .brand:nth-last-child(-n+2) .pop { left: auto; right: 0; transform: translate(0, 8px) scale(.96); }
-.brands .brand:nth-last-child(-n+2):hover .pop, .brands .brand:nth-last-child(-n+2):focus .pop { transform: translate(0, 0) scale(1); }
+.brand:hover .pop, .brand:focus .pop { opacity: 1; transform: translate(calc(-50% + var(--dx, 0px)), 0) scale(1); }
 @media (max-width: 760px) {
   .brands { position: relative; }
   .brands .brand { position: static; }
-  .brands .brand .pop, .brands .brand:nth-of-type(n) .pop { left: 50%; right: auto; bottom: calc(100% + 8px); transform: translate(-50%, 8px) scale(.96); }
-  .brands .brand:hover .pop, .brands .brand:focus .pop, .brands .brand:nth-of-type(n):hover .pop, .brands .brand:nth-of-type(n):focus .pop { transform: translate(-50%, 0) scale(1); }
+  .brand .pop { bottom: calc(100% + 8px); }
   .brand .pop img { height: auto; max-height: 200px; max-width: calc((100vw - 48px) / 2); }
   .brand .pop img:only-child { max-width: calc(100vw - 40px); }
-}
+}.brands { gap: 6px; }
+.brands > .tiny { margin-right: 4px; }
+.brand { padding: 7px 10px; letter-spacing: .04em; }
