@@ -122,4 +122,26 @@
     el.addEventListener('blur', function () { if (!el.classList.contains('on')) el.classList.remove('hv'); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); el.classList.toggle('hv', el.classList.contains('on')); });
   });
+  // Signify title: hover "translates" signs into a live caption, then speaks it
+  document.querySelectorAll('.sgn').forEach(function (el) {
+    var out = el.querySelector('.sg-txt'), timers = [], i = 0;
+    var lines = ['Hello, how are you?', 'Nice to meet you.', 'Let’s go, shall we?'];
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function clear() { timers.forEach(clearTimeout); timers = []; }
+    function say() {
+      var t = lines[i++ % lines.length], step = reduce ? 0 : 45;
+      el.classList.remove('spk'); out.textContent = '';
+      for (var n = 1; n <= t.length; n++) (function (n) { later(function () { out.textContent = t.slice(0, n); }, n * step); })(n);
+      later(function () { el.classList.add('spk'); }, t.length * step + 150);
+      later(say, t.length * step + 1700);
+    }
+    function start() { if (el.classList.contains('hv')) return; clear(); i = 0; el.classList.add('hv'); later(say, 250); }
+    function stop() { clear(); el.classList.remove('hv', 'spk'); out.textContent = ''; }
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', start);
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
 })();
