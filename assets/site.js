@@ -76,8 +76,11 @@
     }
     function start() { if (loop) return; i = 0; loop = setInterval(function () { i = (i + 1) % list.length; show(i); }, 900); i = 1; show(1); }
     function stop() { clearInterval(loop); loop = null; i = 0; show(0); }
-    el.addEventListener('mouseenter', start); el.addEventListener('mouseleave', stop);
-    el.addEventListener('focus', start); el.addEventListener('blur', stop);
-    el.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+    // listen on the whole title row: the word changes width, so the cursor must not fall off it
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', function () { el.classList.add('hv'); start(); });
+    zone.addEventListener('mouseleave', function () { el.classList.remove('hv'); if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
 })();

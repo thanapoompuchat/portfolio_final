@@ -369,6 +369,7 @@ a { color: inherit; }
 .loc { position: relative; display: inline-flex; align-items: flex-start; gap: .18em; cursor: default; outline: none; }
 .loc-w { display: inline-block; white-space: nowrap; transition: color .3s; }
 .loc-tag { font: 600 12px/1 'JetBrains Mono', monospace; letter-spacing: .08em; color: var(--on-accent); background: var(--accent); border-radius: 99px; padding: 6px 9px; margin-top: .35em; opacity: 0; transform: translateY(6px) scale(.8); transition: opacity .25s, transform .35s cubic-bezier(.3,1.6,.5,1); }
-.loc:is(:hover, :focus-visible, .on) .loc-tag { opacity: 1; transform: none; }
-.loc:is(:hover, :focus-visible, .on) .loc-w { color: var(--accent); }
+.loc:is(.hv, :focus-visible, .on) .loc-tag { opacity: 1; transform: none; }
+.loc:is(.hv, :focus-visible, .on) .loc-w { color: var(--accent); }
 .loc-w.rtl { direction: rtl; }
+@media (max-width: 600px) { .loc-tag { position: absolute; right: 0; bottom: 100%; margin: 0 0 6px; } }
