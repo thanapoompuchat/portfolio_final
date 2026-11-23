@@ -112,4 +112,14 @@
     el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
+
+  // generic title hover zone: toggles .hv on .hz elements when the whole title row is hovered or tapped
+  document.querySelectorAll('.hz').forEach(function (el) {
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', function () { el.classList.add('hv'); });
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) el.classList.remove('hv'); });
+    el.addEventListener('focus', function () { el.classList.add('hv'); });
+    el.addEventListener('blur', function () { if (!el.classList.contains('on')) el.classList.remove('hv'); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); el.classList.toggle('hv', el.classList.contains('on')); });
+  });
 })();

@@ -384,3 +384,22 @@ a { color: inherit; }
 .login.ok .lg-tag { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .login.ok .lg-tag i { background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.3); }
 .login.ok .lg-w { color: var(--accent); }
+/* Lexia title: hover stamps a copyright seal on the name */
+.lex { position: relative; display: inline-block; cursor: default; outline: none; }
+.lex-w { position: relative; display: inline-block; transition: color .3s; }
+.lex-w::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.04em; height: .06em; background: var(--accent); border-radius: 9px; transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2,.8,.2,1) .25s; }
+.lex-c { font-size: .32em; vertical-align: 1.6em; margin-left: .06em; color: var(--accent); display: inline-block; opacity: 0; transform: scale(0) rotate(-90deg); transition: opacity .2s, transform .45s cubic-bezier(.3,1.8,.5,1) .1s; }
+.stamp { position: absolute; left: calc(100% + .05em); top: 50%; width: 1.05em; height: 1.05em; margin-top: -.6em; color: var(--accent); opacity: 0; transform: scale(1.9) rotate(-28deg); pointer-events: none; transition: opacity .15s, transform .35s cubic-bezier(.5,0,.2,1.4); }
+.stamp svg { width: 100%; height: 100%; overflow: visible; }
+.stamp .st-o { fill: color-mix(in srgb, var(--accent) 8%, transparent); stroke: currentColor; stroke-width: 3; }
+.stamp .st-i { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 3 3; }
+.stamp text { fill: currentColor; font: 700 10.5px/1 'JetBrains Mono', monospace; letter-spacing: 1.2px; }
+.stamp .st-c { font: 800 34px/1 'Inter Tight', sans-serif; letter-spacing: 0; }
+.stamp .st-ring { transform-origin: 60px 60px; }
+.lex.hv .lex-w::after { transform: scaleX(1); }
+.lex.hv .lex-c { opacity: 1; transform: none; }
+.lex.hv .stamp { opacity: .95; transform: scale(1) rotate(-12deg); transition-delay: .35s; }
+.lex.hv .stamp .st-ring { animation: spin 12s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) { .stamp { width: .95em; height: .95em; margin-top: -.55em; } }
+@media (prefers-reduced-motion: reduce) { .lex.hv .stamp .st-ring { animation: none; } }
