@@ -460,3 +460,9 @@ a { color: inherit; }
 .sg-dot:first-of-type { border-color: #222; }
 .sg-award { max-width: 980px; display: grid; gap: 14px; }
 @media (max-width: 760px) { .sg-dec { grid-template-columns: minmax(0, 1fr); } .sg-ui { height: auto; min-height: 180px; } .sg-card.tall .sg-ui { height: 240px; } .sg-seg span { height: 56px; font-size: 10px; letter-spacing: .04em; } .sg-key { padding: 22px; } }
+/* Signify: award photos in one row of three, camera shown near native size */
+.sg-award { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1000px; align-items: start; }
+.sg-award .shot img { object-position: 62% 50%; }
+.sg-card.tall .sg-ui { padding: 18px; align-items: center; }
+.sg-card.tall .sg-ui img { width: auto; height: 100%; max-width: 100%; object-fit: cover; object-position: 50% 70%; border-radius: 10px; }
+@media (max-width: 760px) { .sg-award { grid-template-columns: minmax(0, 1fr); } .sg-card.tall .sg-ui { height: 260px; } }
