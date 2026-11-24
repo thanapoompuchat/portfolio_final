@@ -188,12 +188,17 @@
     document.body.appendChild(bub);
     var lb = bub.firstChild;
     var VIEW = '.fcard, .item, .ie-kw a, .pn a';
+    /* Per-project label; the look comes from html[data-cur] in the CSS. */
+    var CUR = { ieat: '<i class="cb-st"><b></b><b></b><b></b></i>View', centralize: '<i class="cb-dot"></i>View', vibirs: '<i class="cb-eq"><b></b><b></b><b></b></i>Play',
+      signify: 'View', lexia: 'View case', betask: 'Open', 'ai-evaluation': 'Audit&nbsp;→' };
     document.addEventListener('mousemove', function (e) {
       bub.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
     }, { passive: true });
     document.addEventListener('mouseover', function (e) {
       var v = e.target.closest && e.target.closest(VIEW);
-      if (v) lb.textContent = v.closest('.pn') ? (v.classList.contains('pn-p') ? 'Prev' : 'Next') : (v.matches('.fcard, .item') ? 'View' : 'Open');
+      var k = v && v.getAttribute('data-cur') || '';
+      if (v) lb.innerHTML = v.closest('.pn') ? (v.classList.contains('pn-p') ? 'Prev' : 'Next') : (v.matches('.fcard, .item') ? (CUR[k] || 'View') : 'Open');
+      if (k) root.setAttribute('data-cur', k); else if (v) root.removeAttribute('data-cur');
       root.classList.toggle('cur-view', !!v);
     });
     document.addEventListener('mouseleave', function () { root.classList.remove('cur-view'); });
