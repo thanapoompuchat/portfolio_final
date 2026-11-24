@@ -1005,3 +1005,34 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 .cm-tag.pax { background: #e9edf2; color: #4a5566; }
 .cm-dec td:nth-child(3) .cm-tag { display: table; }
 @media (max-width: 640px) { .cm-dec { min-width: 0; } .cm-dec td:nth-child(3) .cm-tag { display: inline-block; margin-right: 6px; } }
+/* Centralize v4: task board + proof */
+.cm-board > div { position: relative; }
+.cm-bh { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cm-st-tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+.cm-st-tag.now { background: #dff3ef; color: #0f6b5c; }
+.cm-st-tag.wait { background: #fdf1cf; color: #8a6200; }
+.cm-board .st-now { border-top: 3px solid #3bb39f; }
+.cm-board .st-wait { border-top: 3px solid #e7b93c; }
+.cm-board li small em { font-style: normal; font-weight: 700; color: var(--accent); margin-right: 4px; }
+.cm-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: 13px; color: var(--muted); }
+.cm-legend .cm-st-tag.wait { margin-left: 14px; }
+.cm-tpl { min-width: 0; }
+.cm-tpl td:first-child { width: 70px; color: var(--accent); }
+.cm-tpl td:last-child { width: 90px; text-align: right; font-variant-numeric: tabular-nums; color: var(--fg); }
+.cm-tpl th:last-child { text-align: right; }
+.cm-tpl tr:last-child td { background: var(--bg); }
+.cm-pf { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 20px 32px; align-items: start; padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--line); }
+.cm-pf .cm-gh { margin-top: 0; }
+.cm-pf-h p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.cm-pf figure { position: relative; margin: 0; }
+.cm-pf figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--r); background: #fff; }
+.cm-pf figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.cm-pf-a { grid-column: 1 / -1; }
+.cm-pf.side { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 5fr); }
+.cm-pf.side .cm-pf-a { grid-column: auto; }
+@media (max-width: 860px) {
+  .cm-pf, .cm-pf.side { grid-template-columns: minmax(0, 1fr); }
+  .cm-pf-a, .cm-pf.side .cm-pf-a { grid-column: auto; }
+}
+.cm-pf .ie-ba-t { position: static; display: inline-block; margin-bottom: 10px; }
+.cm-pf figure img { width: auto; max-width: 100%; }
