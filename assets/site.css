@@ -891,3 +891,16 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 .ie-per a:hover { transform: translateY(-3px); }
 .ie-per img { display: block; width: 100%; height: auto; }
 @media (max-width: 760px) { .ie-per { grid-template-columns: minmax(0, 1fr); } }
+
+/* Centralize */
+.ie-ba.stack { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.ie-ba.stack .frame { aspect-ratio: auto; }
+.ie-ba.stack .frame img { height: auto; }
+.cm-th { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.cm-th > div { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+.cm-th .tiny { display: block; color: var(--accent); margin-bottom: 6px; }
+.cm-th h4 { margin: 0 0 14px; font-size: 18px; line-height: 1.3; letter-spacing: -.01em; }
+.cm-th ul { list-style: none; margin: 0; padding: 0; }
+.cm-th li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); line-height: 1.5; }
+.cm-th li b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 2px; }
+@media (max-width: 860px) { .cm-th { grid-template-columns: minmax(0, 1fr); } }
