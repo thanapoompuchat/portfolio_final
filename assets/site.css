@@ -908,15 +908,16 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 /* Centralize title: plane taxis along the underline, then takes off */
 .gp { position: relative; display: inline-block; cursor: default; outline: none; }
 .gp-w { position: relative; display: inline-block; }
-.gp-w::after { content: ''; position: absolute; left: 0; bottom: -.02em; height: .05em; width: 82%; border-radius: 9px; background: repeating-linear-gradient(90deg, currentColor 0 .22em, transparent .22em .34em); transform: scaleX(0); transform-origin: left; opacity: .55; }
-.gp-pl { position: absolute; left: 0; bottom: -.1em; width: .36em; height: .36em; fill: var(--fg); transform: translate(-50%, 0) rotate(90deg); opacity: 0; pointer-events: none; }
-.gp.hv .gp-w::after, .gp.on .gp-w::after { animation: gpTrail 1.5s cubic-bezier(.45,0,.2,1) forwards; }
-.gp.hv .gp-pl, .gp.on .gp-pl { animation: gpFly 1.5s cubic-bezier(.45,0,.2,1) forwards; }
-@keyframes gpTrail { 0% { transform: scaleX(0); } 70%, 100% { transform: scaleX(1); } }
+.gp-w::after { content: ''; position: absolute; left: 0; bottom: -.26em; height: .05em; width: 100%; border-radius: 9px; background: repeating-linear-gradient(90deg, currentColor 0 .22em, transparent .22em .34em); transform: scaleX(0); transform-origin: left; opacity: .55; }
+.gp-pl { position: absolute; left: 0; bottom: -.4em; width: .36em; height: .36em; fill: var(--fg); transform: translate(-50%, 0) rotate(90deg); opacity: 0; pointer-events: none; }
+.gp.hv .gp-w::after, .gp.on .gp-w::after { animation: gpTrail 1.6s cubic-bezier(.45,0,.2,1) forwards; }
+.gp.hv .gp-pl, .gp.on .gp-pl { animation: gpFly 1.6s cubic-bezier(.45,0,.2,1) forwards; }
+@keyframes gpTrail { 0% { transform: scaleX(0); } 72%, 100% { transform: scaleX(1); } }
 @keyframes gpFly {
-  0% { left: 0; bottom: -.1em; opacity: 0; transform: translate(-50%, 0) rotate(90deg); }
+  0% { left: 0; bottom: -.4em; opacity: 0; transform: translate(-50%, 0) rotate(90deg); }
   8% { opacity: 1; }
-  70% { left: 82%; bottom: -.1em; transform: translate(-50%, 0) rotate(90deg); }
-  100% { left: 106%; bottom: .7em; opacity: 1; transform: translate(-50%, 0) rotate(60deg); }
+  72% { left: 100%; bottom: -.4em; transform: translate(-50%, 0) rotate(90deg); }
+  100% { left: 112%; bottom: .45em; opacity: 1; transform: translate(-50%, 0) rotate(58deg); }
 }
-@media (prefers-reduced-motion: reduce) { .gp.hv .gp-w::after, .gp.on .gp-w::after { animation: none; transform: scaleX(1); } .gp.hv .gp-pl, .gp.on .gp-pl { animation: none; opacity: 1; left: 104%; bottom: .55em; transform: translate(-50%, 0) rotate(62deg); } }
+@media (prefers-reduced-motion: reduce) { .gp.hv .gp-w::after, .gp.on .gp-w::after { animation: none; transform: scaleX(1); } .gp.hv .gp-pl, .gp.on .gp-pl { animation: none; opacity: 1; left: 112%; bottom: .45em; transform: translate(-50%, 0) rotate(58deg); } }
+.hero h1.brand:has(.gp) { padding-bottom: .34em; }
