@@ -178,6 +178,22 @@
     zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
   });
 
+  /* Centralize title: a gate status chip that recovers from Offline to Open, like the dashboard cards. */
+  document.querySelectorAll('.gp').forEach(function (el) {
+    var lb = el.querySelector('.gp-lb'), timers = [];
+    var steps = [['Offline', 'e'], ['Reconnecting', 'w'], ['Open', 'ok']];
+    var gap = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 800;
+    function clear() { timers.forEach(clearTimeout); timers = []; }
+    function step(n) { lb.textContent = steps[n][0]; el.setAttribute('data-s', steps[n][1]); el.style.setProperty('--p', (n + 1) / steps.length); }
+    function start() { if (el.classList.contains('hv')) return; clear(); el.classList.add('hv'); steps.forEach(function (_, n) { timers.push(setTimeout(function () { step(n); }, 150 + n * gap)); }); }
+    function stop() { clear(); el.classList.remove('hv'); el.removeAttribute('data-s'); el.style.setProperty('--p', 0); lb.textContent = steps[0][0]; }
+    var zone = el.closest('h1') || el;
+    zone.addEventListener('mouseenter', start);
+    zone.addEventListener('mouseleave', function () { if (!el.classList.contains('on')) stop(); });
+    el.addEventListener('focus', start); el.addEventListener('blur', function () { if (!el.classList.contains('on')) stop(); });
+    zone.addEventListener('click', function () { el.classList.toggle('on'); if (el.classList.contains('on')) start(); else stop(); });
+  });
+
   /* Cursor bubble: a "View" label that sits on the pointer over projects. Fine pointers only. */
   (function () {
     if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
