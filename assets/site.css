@@ -904,36 +904,3 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 .cm-th li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); line-height: 1.5; }
 .cm-th li b { display: block; color: var(--fg); font-weight: 600; margin-bottom: 2px; }
 @media (max-width: 860px) { .cm-th { grid-template-columns: minmax(0, 1fr); } }
-
-/* Cursor bubble per project: each one borrows the project's own UI style */
-.cur-bub span { width: auto; min-width: 76px; margin: 0; padding: 0 16px; gap: 8px; grid-auto-flow: column; transform: translate(-50%, -50%) scale(0); transition: transform .3s cubic-bezier(.2,.9,.2,1), opacity .2s, border-radius .3s; white-space: nowrap; }
-html.cur-view .cur-bub span { transform: translate(-50%, -50%) scale(1); }
-.cur-bub i { font-style: normal; display: inline-flex; align-items: center; gap: 3px; }
-.cur-bub i b { display: block; }
-html[data-cur] .cur-bub span { min-width: 0; height: 42px; border-radius: 99px; letter-spacing: .04em; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
-/* IEAT: purple pill with the permit progress dots */
-html[data-cur="ieat"] .cur-bub span { background: #9b6bff; color: #fff; }
-.cb-st b { width: 6px; height: 6px; border-radius: 50%; border: 1px solid #fff; animation: cbStep 1.8s infinite; }
-.cb-st b:nth-child(2) { animation-delay: .3s; } .cb-st b:nth-child(3) { animation-delay: .6s; }
-@keyframes cbStep { 0%, 20% { background: transparent; } 40%, 100% { background: #fff; } }
-/* Centralize: a gate status chip from the ops dashboard */
-html[data-cur="centralize"] .cur-bub span { background: #fff; color: #0b1a2e; border: 1px solid #d6dde8; border-radius: 10px; height: 40px; font: 500 12px/1 'JetBrains Mono', monospace; letter-spacing: .02em; }
-.cb-dot { width: 8px; height: 8px; border-radius: 50%; background: #1fa35c; box-shadow: 0 0 0 0 rgba(31,163,92,.5); animation: cbPing 1.6s infinite; }
-@keyframes cbPing { 70% { box-shadow: 0 0 0 7px rgba(31,163,92,0); } 100% { box-shadow: 0 0 0 0 rgba(31,163,92,0); } }
-/* Vibirs: dark player button with a live equaliser */
-html[data-cur="vibirs"] .cur-bub span { background: #0e1320; color: #eef2fb; border: 1px solid #6b9be0; }
-.cb-eq { height: 12px; align-items: flex-end !important; }
-.cb-eq b { width: 3px; height: 100%; background: #6b9be0; border-radius: 2px; transform-origin: bottom; animation: cbEq .9s ease-in-out infinite alternate; }
-.cb-eq b:nth-child(2) { animation-delay: -.3s; } .cb-eq b:nth-child(3) { animation-delay: -.6s; }
-@keyframes cbEq { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
-/* Signify: warm orange, soft hand-drawn blob */
-html[data-cur="signify"] .cur-bub span { background: #e2671c; color: #fff; height: 76px; min-width: 76px; padding: 0 14px; border-radius: 48% 52% 44% 56% / 55% 45% 55% 45%; animation: cbBlob 3s ease-in-out infinite; }
-@keyframes cbBlob { 50% { border-radius: 55% 45% 52% 48% / 45% 55% 45% 55%; } }
-/* Lexia: indigo pill, sentence case like the product */
-html[data-cur="lexia"] .cur-bub span { background: #4b36c9; color: #fff; text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 500; }
-/* BeTask: green dashboard button */
-html[data-cur="betask"] .cur-bub span { background: #1f8a4c; color: #fff; border-radius: 8px; height: 38px; }
-/* CultureAI: terminal lime on black */
-html[data-cur="ai-evaluation"] .cur-bub span { background: #0b0b0b; color: #c6f432; border: 1px solid #c6f432; border-radius: 4px; height: 38px; font: 500 12px/1 'JetBrains Mono', monospace; }
-@media (prefers-reduced-motion: reduce) { .cur-bub i b, .cb-dot, html[data-cur="signify"] .cur-bub span { animation: none; } .cb-st b { background: #fff; } }
-.item:hover .t { color: var(--c); transition: color .25s; }
