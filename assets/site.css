@@ -992,3 +992,16 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
   .cm-tb td + td { margin-top: 6px; }
   .cm-find td:nth-child(4) { color: var(--accent); }
 }
+.cm-dec { min-width: 860px; }
+.cm-dec td:first-child { width: 36%; color: var(--fg); }
+.cm-dec td:nth-child(3) { width: 150px; }
+.cm-dec td:nth-child(3) .cm-role { display: table; margin: 0 0 6px; font-size: 10px; padding: 3px 8px; }
+.cm-gh { display: flex; align-items: baseline; gap: 12px; margin: 34px 0 14px; font-size: 18px; letter-spacing: -.01em; }
+.cm-gh span { font-family: var(--mono); font-size: 12px; color: var(--accent); border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 2px 8px; }
+.content:has(> .cm-gh) + .content { margin-top: 0; }
+.cm-tag.mon { background: #e3effd; color: #0d5bb5; }
+.cm-tag.both { background: #efe7fb; color: #6a3fb5; }
+.cm-tag.act { background: #fff0de; color: #a35a00; }
+.cm-tag.pax { background: #e9edf2; color: #4a5566; }
+.cm-dec td:nth-child(3) .cm-tag { display: table; }
+@media (max-width: 640px) { .cm-dec { min-width: 0; } .cm-dec td:nth-child(3) .cm-tag { display: inline-block; margin-right: 6px; } }
