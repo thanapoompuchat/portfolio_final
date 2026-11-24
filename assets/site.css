@@ -1083,3 +1083,8 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 .cm-bands-t .cm-tpls > div { padding: 14px; }
 @media (max-width: 1100px) { .cm-bands-t .cm-tpls { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .cm-bands-t .cm-tpls { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Centralize v5.2: equal proof frames */
+.cm-pf-g { align-items: stretch; }
+.cm-pf-f { display: flex; align-items: center; justify-content: center; height: 400px; padding: 18px; background: #fff; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; cursor: zoom-in; }
+.cm-pf2 .cm-pf-f img { max-width: 100%; max-height: 100%; width: auto; height: auto; border: 0; border-radius: 4px; object-fit: contain; object-position: center; }
+@media (max-width: 860px) { .cm-pf-f { height: 300px; padding: 12px; } }
