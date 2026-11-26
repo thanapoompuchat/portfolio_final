@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CultureAI — Thanapoom Puchat</title>
+  <meta name="description" content="An AI tool that audits UI designs for cultural fit before launch. Published at JCSSE 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body style="--bg:#0b0b0b;--fg:#f1f1ee;--muted:#8f8f88;--panel:#161616;--line:#262626;--accent:#c6f432;--on-accent:#0b0b0b">
+<header class="bar"><div class="wrap">
+  <a href="../index.html#top">Thanapoom Puchat</a>
+  <nav><a href="../index.html#work">Work</a><a class="hide-sm" href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <span class="label hl">CultureAI</span>
+  <h1 class="brand"><span class="loc" tabindex="0" data-words="CultureAI|EN;วัฒนธรรม AI|TH;文化 AI|ZH;ثقافة AI|AR;カルチャー AI|JA;문화 AI|KO;Kultur AI|DE"><span class="loc-w">CultureAI</span><span class="loc-tag">EN</span></span></h1>
+  <p class="tagline">An AI auditor that catches UI choices that read wrong in another culture, before launch.</p>
+  <div class="meta"><div><b>Role</b>Designer &amp; developer</div><div><b>Type</b>Web app + Figma plugin</div><div><b>Year</b>2025</div><div><b>Research</b>JCSSE 2025 paper</div></div>
+  <figure class="shot contain reveal"><div class="frame" style="--ar:16/10"><img src="../images/ai_mockup.png" alt="CultureAI web app" loading="lazy"></div></figure>
+</div></section>
+<section class="slide side"><div class="wrap">
+  <div><span class="label">01 · Problem</span><h2>Cultural checks happen too late</h2><p class="sub">Most teams only find cultural problems at the end of a project, or after launch. Existing tools check grammar and code, not meaning.</p></div>
+  <div><div class="content"><div class="list reveal"><div><span class="n">01</span><b>Gestures &amp; symbols</b><p>An icon that is friendly in one market can be rude in another.</p></div><div><span class="n">02</span><b>Colour</b><p>The same colour can mean celebration in one place and mourning in another.</p></div><div><span class="n">03</span><b>Layout direction</b><p>Right-to-left languages need a mirrored layout, not just translated text.</p></div><div><span class="n">04</span><b>Local rules</b><p>Copy and imagery can clash with local law or brand safety.</p></div></div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">02 · Try it</span>
+  <h2>Hover the screen to run an audit</h2><p class="sub">A simplified version of what CultureAI does with a real screenshot or Figma frame.</p>
+  <div class="content"><div class="audit reveal" tabindex="0" aria-label="Interactive demo: hover or tap to run a cultural audit">
+  <div class="a-screen">
+    <div class="a-top"><span class="a-t a-back">&larr;<i class="pin">2</i></span><b>Order #2041</b><span class="a-t a-date">11/03<i class="pin">3</i></span></div>
+    <div class="a-hero"><span class="tiny">Delivery</span><b>Your order is on its way</b><div class="a-bar"><i></i></div></div>
+    <div class="a-rate"><span>How was your order?</span><span class="a-t a-like">&#128077; Like<i class="pin">1</i></span></div>
+    <div class="a-cta">Track order</div>
+    <span class="a-scan" aria-hidden="true"></span>
+    <span class="a-hint">Hover or tap to audit</span>
+  </div>
+  <div class="a-side">
+    <div class="a-mk"><span class="tiny">Target market</span><b>Middle East &middot; Arabic</b></div>
+    <div class="a-score"><b class="a-num">--</b><span>/ 100 cultural fit</span></div>
+    <ol class="a-flags">
+      <li><b>Thumbs-up icon</b>Can read as rude in parts of the Middle East. Use a star rating.</li>
+      <li><b>Left-to-right layout</b>Arabic reads right to left. Mirror the layout and the back arrow.</li>
+      <li><b>Date &ldquo;11/03&rdquo;</b>Day and month are ambiguous. Write 11 Mar.</li>
+    </ol>
+  </div>
+</div></div>
+</div></section>
+<section class="slide side"><div class="wrap">
+  <div><span class="label">03 · How it works</span><h2>Screenshot in, fixes out</h2><p class="sub">A Next.js web app for teams and a Figma plugin for designers while they work. Gemini reads each screen through a structured prompt pipeline.</p></div>
+  <div><div class="content"><div class="list reveal"><div><span class="n">01</span><b>Layout &amp; spacing</b><p>Density, alignment and reading direction.</p></div><div><span class="n">02</span><b>Typography &amp; legibility</b><p>Script support, size and line length.</p></div><div><span class="n">03</span><b>Control hierarchy</b><p>What users see first, and whether it fits local habits.</p></div><div><span class="n">04</span><b>Cultural aesthetics</b><p>Colour, imagery, gestures and symbols.</p></div></div></div></div>
+</div></section>
+<section class="slide"><div class="wrap">
+  <span class="label">04 · Product</span>
+  <h2>Audit report</h2><p class="sub">Every flag comes with the reason and a suggested fix.</p>
+  <div class="content"><div class="duo"><figure class="shot reveal"><div class="frame" style="--ar:1712/824"><img src="../images/cultureai/ai_1@2x.jpg" alt="CultureAI report overview" loading="lazy"></div></figure><figure class="shot reveal"><div class="frame" style="--ar:1712/826"><img src="../images/cultureai/ai_2@2x.jpg" alt="CultureAI flagged issue detail" loading="lazy"></div></figure></div></div>
+</div></section>
+<section class="slide side"><div class="wrap">
+  <div><span class="label">05 · Paper</span><h2>Published at JCSSE 2025</h2><p class="sub">CultureAI: An AI-Powered Platform for Cross-Cultural UX/UI Auditing and Contextual Localization. Kasetsart University, with Soontharee Koompairojn, Theparit Banditwattanawong and Somchoke Ruengittinun.</p></div>
+  <div><div class="content"><div class="list reveal"><div><span class="n">01</span><b>Question</b><p>Can AI help designers spot culturally misaligned UI early, at scale?</p></div><div><span class="n">02</span><b>Method</b><p>User acceptance testing with six industry practitioners, from senior UX/UI designers to an e-commerce startup and a content marketer.</p></div><div><span class="n">03</span><b>Finding</b><p>CultureAI cut manual review effort and caught subtle issues: information density, visual priority and culture-specific symbols.</p></div><div><span class="n">04</span><b>Limit</b><p>Results depend on clear context input, especially for complex cultural meaning and brand identity.</p></div></div></div></div>
+</div></section>
+<section class="slide tight"><div class="wrap"><div class="content" style="margin-top:0"><div class="papers"><figure class="paper reveal"><img src="../images/cultureai/paper_p1.jpg" alt="JCSSE paper, page 1" loading="lazy"><figcaption>Page 1 · Abstract and introduction</figcaption></figure><figure class="paper reveal"><img src="../images/cultureai/paper_p2.jpg" alt="JCSSE paper, page 2" loading="lazy"><figcaption>Page 2 · Conclusion and references</figcaption></figure></div></div></div></section>
+<nav class="wrap pn" aria-label="More projects"><a class="pn-p" href="betask.html"><span class="tiny">Previous project</span><span class="t">BeTask Employee Portal</span><span class="ar" aria-hidden="true">←</span></a><a class="pn-n" href="ieat.html"><span class="tiny">Next project</span><span class="t">IEAT Web Portal</span><span class="ar" aria-hidden="true">→</span></a></nav>
+</main>
+<footer class="wrap end tiny"><span>© 2026 Thanapoom Puchat</span><a href="../index.html#work">All work</a></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
