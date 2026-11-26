@@ -1089,3 +1089,8 @@ html.cur-view .fcard, html.cur-view .fcard *, html.cur-view .item, html.cur-view
 .cm-pf2 .cm-pf-f img { max-width: 100%; max-height: 100%; width: auto; height: auto; border: 0; border-radius: 4px; object-fit: contain; object-position: center; }
 @media (max-width: 860px) { .cm-pf-f { height: auto; padding: 8px; } }
 .cm-pf2 .cm-pf-g { width: min(1360px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); gap: 24px; }
+/* Centralize v5.3: stacked, full-width proof */
+.cm-pf2 .cm-pf-g { grid-template-columns: minmax(0, 1fr); width: min(1280px, calc(100vw - 32px)); gap: 28px; }
+.cm-pf2 .cm-pf-f { height: auto; min-height: 0; padding: 24px; }
+.cm-pf2 .cm-pf-f img { max-height: none; }
+@media (max-width: 860px) { .cm-pf2 .cm-pf-f { padding: 8px; } }
